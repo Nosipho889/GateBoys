@@ -1,0 +1,186 @@
+﻿@model GateBoys.Models.parcelHandler
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>parcelHandler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeMidName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeMidName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeIdNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeIdNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeePhonenumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeePhonenumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeProfilePic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeProfilePic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeCv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeCv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeIdDocument)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeIdDocument)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.employeeQualification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.employeeQualification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.street_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.street_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.route)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.route)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.administrative_area_level_1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.administrative_area_level_1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.locality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.locality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postal_code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postal_code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fullAdress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fullAdress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isStillEmployeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isStillEmployeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reasonLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reasonLeft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.addedByEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.addedByEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateRegistered)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateRegistered)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

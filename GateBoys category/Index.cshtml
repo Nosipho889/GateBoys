@@ -1,0 +1,114 @@
+﻿@model IEnumerable<GateBoys.Models.parcelHandler>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "UsersAdmin")
+</p>
+<table class="timetable_sub">
+    <thead>
+        <tr>
+            <th>
+                Employees
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeIdNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeePhonenumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeProfilePic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeCv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeIdDocument)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.employeeQualification)
+            </th>
+            <th>
+                Adress
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isStillEmployeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reasonLeft)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateRegistered)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeName)
+                @Html.DisplayFor(modelItem => item.employeeMidName)
+                @Html.DisplayFor(modelItem => item.employeeSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeIdNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeePhonenumber)
+            </td>
+            <td>
+                <img style="height:100px;width:100px;" class="img img-responsive img-rounded img-thumbnail" src="/Upload/getProfilePicture/@Html.DisplayFor(modelItem=>item.id)?employeeRole=driver" alt="@Html.DisplayFor(modelItem=>item.employeeProfilePic)" />
+            </td>
+            <td>
+                <a href="/Upload/getCV/@Html.DisplayFor(modelItem=>item.id)?employeeRole=driver" title="CV">
+                    CV<span class="glyphicon glyphicon-download-alt"></span>
+                </a>
+            </td>
+            <td>
+                <a href="/Upload/getId/@Html.DisplayFor(modelItem=>item.id)?employeeRole=driver" title="ID">
+                    ID<span class="glyphicon glyphicon-download-alt"></span>
+                </a>
+            </td>
+            <td>
+                <a href="/Upload/getQualification/@Html.DisplayFor(modelItem=>item.id)?employeeRole=driver" title="@Html.DisplayFor(modelItem => item.employeeCv)">
+                    Qualification<span class="glyphicon glyphicon-download-alt"></span>
+                </a>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.street_number)   @Html.DisplayFor(modelItem => item.route) <br />
+                @Html.DisplayFor(modelItem => item.administrative_area_level_1)<br />
+                @Html.DisplayFor(modelItem => item.locality)<br />
+                @Html.DisplayFor(modelItem => item.postal_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isStillEmployeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reasonLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateRegistered)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
