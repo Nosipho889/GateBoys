@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Gateboys.Models.InventoryProduct>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div style="width:100%; height:40px; background-color:lightgray"><h2 class="text-center">Products</h2></div>
+<form asp-controller="InventoryProducts" asp-action="Index" method="get">
+    <p>
+        Categories: @Html.DropDownList("productCategory", "All")
+        Title: <input type="text" name="search">
+        <input type="submit" value="Filter" />
+
+
+        <a href="@Url.Action("Create","InventoryProducts")" class="btn btn-success pull-right">
+            ADD PRODUCT+
+        </a>
+    </p>
+</form>
+<table class="table table-hover">
+    <tr style="background-color:#c8c8c8">
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brandName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Catalogues.catalogueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories.categoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Suppliers.supplierName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantityOnHand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unitPrice)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.totalPrice)
+            </th>*@
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td><span>No rows match your search criteria</span></td>
+        </tr>
+    }
+    else
+    {
+        decimal subtotal = 0;
+        decimal totalPrice = 0;
+
+        foreach (var item in Model)
+        {
+            subtotal = subtotal + Convert.ToInt32(item.unitPrice * item.quantityOnHand);
+            totalPrice = totalPrice + subtotal;
+            <tr>
+                <td>
+                    @if (item.Image != null)
+                    {<img src="@Url.Action("RenderImage", "InventoryProducts", new { id = item.productId })" width="50" height="60" />
+                    }
+                    else
+                    { <img src="~/Content/Images2/NewProd.jpg" width="50" height="60" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.brandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Catalogues.catalogueName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categories.categoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suppliers.supplierName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantityOnHand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.unitPrice)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => @subtotal)
+                    </td>*@
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.productId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.productId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.productId })
+                </td>
+            </tr>
+        }
+    }
+</table>
+
